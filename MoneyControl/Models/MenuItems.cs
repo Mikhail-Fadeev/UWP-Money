@@ -22,10 +22,10 @@ namespace MoneyControl.Models
         {
             var tmp = new ObservableCollection<Items>()
             {
-                new Items { Image = "/Images/pachka.png", Text = "Операции"},
-                new Items { Image = "/Images/koshel.png", Text = "Доходы" },
-                new Items { Image = "/Images/vklad.png", Text = "Накопления"},
-                new Items { Image = "/Images/Other.png", Text = "Статистика"},
+                new Items { Image = "/Images/pachka.png", Text = "Операции", page = new Operations()},
+                new Items { Image = "/Images/koshel.png", Text = "Доходы", page = new Income() },
+                new Items { Image = "/Images/vklad.png", Text = "Накопления", page = new Acum()},
+                new Items { Image = "/Images/Other.png", Text = "Статистика", page = new Stat()},
                 // Долги должники, повторяющиеся операции
                 // Доходы когда следующая зарплата
             };
