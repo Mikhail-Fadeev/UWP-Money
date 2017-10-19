@@ -2,43 +2,74 @@
     x:Class="MoneyControl.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MoneyControl"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MoneyControl"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:MoneyControl.ViewModels"
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <vm:Main/>
+        <vm:Main />
     </Page.DataContext>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView x:Name="SplitMain" OpenPaneLength="300" CompactPaneLength="80" DisplayMode="CompactOverlay" IsPaneOpen="False">
+        <SplitView
+            x:Name="SplitMain"
+            CompactPaneLength="80"
+            DisplayMode="CompactOverlay"
+            IsPaneOpen="False"
+            OpenPaneLength="300">
             <SplitView.Pane>
                 <Grid Style="{StaticResource GridPane}">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition/>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Top" Foreground="White" Text="АККАУНТ" HorizontalAlignment="Center"/>
-                    <Button Grid.Row="1" BorderThickness="0" Background="Transparent" Click="Button_Click" VerticalAlignment="Top" Width="80" Height="80">
-                        <Image Source="/Images/bSlider.png"/>
+                    <TextBlock
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FontSize="30"
+                        Foreground="White"
+                        Text="АККАУНТ" />
+                    <Button
+                        Grid.Row="1"
+                        Width="80"
+                        Height="80"
+                        VerticalAlignment="Top"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Click="Button_Click">
+                        <Image Source="/Images/bSlider.png" />
                     </Button>
-                    <ListBox ItemsSource="{Binding Path=Menu, Mode=TwoWay}" Grid.Row="2" Grid.ColumnSpan="2" Background="Transparent">
+                    <ListBox
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Background="Transparent"
+                        ItemsSource="{Binding Path=Menu, Mode=TwoWay}"
+                        SelectedItem="{Binding MenuItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="80"/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="80" />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Image Width="60" HorizontalAlignment="Left" Source="{Binding Path=Image, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Stretch="Fill"/>
-                                    <TextBlock Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Grid.Column="1" Style="{StaticResource tbPane}"/>
+                                    <Image
+                                        Width="60"
+                                        HorizontalAlignment="Left"
+                                        Source="{Binding Path=Image, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        Stretch="Fill" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Style="{StaticResource tbPane}"
+                                        Text="{Binding Path=Text, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -49,10 +80,11 @@
             <SplitView.Content>
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition/>
+                        <RowDefinition Height="80" />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Border Style="{StaticResource BorderPane}"/>
+                    <Border Style="{StaticResource BorderPane}" />
+                    <Frame Grid.Row="1" Content="{Binding Path=MenuItem.page, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                 </Grid>
             </SplitView.Content>
         </SplitView>

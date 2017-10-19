@@ -103,6 +103,18 @@
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\MenuItems.cs" />
+    <Compile Include="Pages\Acum.xaml.cs">
+      <DependentUpon>Acum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Income.xaml.cs">
+      <DependentUpon>Income.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Operations.xaml.cs">
+      <DependentUpon>Operations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Stat.xaml.cs">
+      <DependentUpon>Stat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\Request.cs" />
     <Compile Include="ViewModels\Main.cs" />
@@ -136,6 +148,22 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Acum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Income.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Operations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Stat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

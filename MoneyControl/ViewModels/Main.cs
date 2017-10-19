@@ -11,7 +11,8 @@ namespace MoneyControl.ViewModels
 {
     class Main : INotifyPropertyChanged
     {
-        private ObservableCollection<Items> menu { get; set; }
+        private ObservableCollection<Items> menu;
+        private Items menuItem;
 
         public ObservableCollection<Items>  Menu
         {
@@ -26,6 +27,18 @@ namespace MoneyControl.ViewModels
             }
         }
        
+        public Items MenuItem
+        {
+            get
+            {
+                return menuItem;
+            }
+            set
+            {
+                menuItem = value;
+                OnPropertyChange("MenuItem");
+            }
+        }
 
         public Main()
         {
